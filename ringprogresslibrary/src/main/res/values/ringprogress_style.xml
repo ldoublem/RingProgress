@@ -1,0 +1,19 @@
+<resources>
+
+
+    <declare-styleable name="RingProgress">
+        <attr name="bgColor" format="color|reference"></attr>
+        <attr name="bgShadowColor" format="color|reference"></attr>
+        <attr name="rotate" format="integer"></attr>
+        <attr name="showBackground" format="boolean"></attr>
+        <attr name="showBackgroundShadow" format="boolean"></attr>
+        <attr name="showRingCorner" format="boolean"></attr>
+        <attr name="ringWidthScale" format="float"></attr>
+        <attr name="ringSweepAngle" format="integer"></attr>
+
+
+
+    </declare-styleable>
+
+
+</resources>
