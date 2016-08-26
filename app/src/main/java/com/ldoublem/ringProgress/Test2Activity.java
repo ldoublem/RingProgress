@@ -46,10 +46,10 @@ public class Test2Activity extends AppCompatActivity {
     }
 
 
-    private void setData(int progress, String text, String title, int startColor,
+    private void setData(int progress, String value, String title, int startColor,
                          int endColor) {
         mlistRing.clear();
-        Ring r = new Ring(progress,text,title,startColor,endColor);
+        Ring r = new Ring(progress,value,title,startColor,endColor);
 //        r.setProgress(progress);
 //        r.setValue(text);
 //        r.setName(title);

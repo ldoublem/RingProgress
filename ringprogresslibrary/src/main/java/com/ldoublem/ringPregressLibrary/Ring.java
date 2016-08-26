@@ -17,7 +17,7 @@ public class Ring {
     private int endColor;
 
 
-    public Ring(int p, String name, String value, int startColor, int endColor) {
+    public Ring(int p,  String value, String name,int startColor, int endColor) {
         this.progress = p;
         this.name = name;
         this.value = value;
