@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by lumingmin on 16/6/27.
+ * Created by lumingmin on 16/6/24.
  */
 
 public class RingProgress extends View {
@@ -416,11 +416,6 @@ public class RingProgress extends View {
     }
 
 
-    private void drawText(Canvas canvas, Paint paint, String text) {
-
-    }
-
-
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -444,17 +439,6 @@ public class RingProgress extends View {
 
     }
 
-//    @Override
-//    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-//        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-//
-//        if (getMeasuredWidth() > getHeight())
-//            mWidth = getMeasuredHeight();
-//        else
-//            mWidth = getMeasuredWidth();
-//
-//
-//    }
 
 
     @Override
@@ -488,13 +472,6 @@ public class RingProgress extends View {
 
 
     }
-
-
-
-
-
-
-
 
 
     public float getFontlength(Paint paint, String str) {

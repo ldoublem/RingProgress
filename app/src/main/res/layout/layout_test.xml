@@ -9,7 +9,7 @@
     <com.ldoublem.ringPregressLibrary.RingProgress
         android:id="@+id/lv_ringp"
         android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_height="400dp"
         app:bgColor="#707070"
         app:ringWidthScale="0.2"
         app:rotate="270"
@@ -91,7 +91,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="automatic"
-                android:text="automatic"/>
+                android:text="data"/>
 
 
         </LinearLayout>

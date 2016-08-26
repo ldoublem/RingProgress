@@ -43,6 +43,9 @@ public class TestActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);//去掉信息栏
         setContentView(R.layout.layout_test);
+
+        getSupportActionBar().hide();
+
         mRingProgress = (RingProgress) findViewById(R.id.lv_ringp);
         mRingProgress.setOnSelectRing(new OnSelectRing() {
             @Override
@@ -144,45 +147,49 @@ public class TestActivity extends AppCompatActivity {
     }
 
 
+    private String[] data=new String[]{"Monday","Tuesday","Wednesday","Thursday","Friday"};
+
+
     private void setData() {
         mlistRing.clear();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < data.length; i++) {
 
             Ring r = new Ring();
-            r.setProgress(random.nextInt(100));
+            int p=random.nextInt(100);
+            r.setProgress(p);
+            r.setValue(String.valueOf(p*100));
+
+            r.setName(data[i]);
+
+
             if (i == 0) {
-                r.setName("Nike");
+
                 r.setStartColor(Color.rgb(235, 79, 56));
                 r.setEndColor(Color.argb(100, 235, 79, 56));
 
 
             }
             if (i == 1) {
-                r.setName("Adidas");
                 r.setStartColor(Color.rgb(17, 205, 110));
                 r.setEndColor(Color.argb(100, 17, 205, 110));
 
             }
             if (i == 2) {
-                r.setName("Reebok");
                 r.setStartColor(Color.rgb(234, 128, 16));
                 r.setEndColor(Color.argb(100, 234, 128, 16));
 
             }
             if (i == 3) {
-                r.setName("Puma");
                 r.setStartColor(Color.rgb(86, 171, 228));
                 r.setEndColor(Color.argb(100, 86, 171, 228));
 
             }
             if (i == 4) {
-                r.setName("Kappa");
                 r.setStartColor(Color.rgb(157, 85, 184));
                 r.setEndColor(Color.argb(100, 157, 85, 184));
 
             }
 
-            r.setValue(String.valueOf(999 + random.nextInt(1000)));
 
 
             mlistRing.add(r);

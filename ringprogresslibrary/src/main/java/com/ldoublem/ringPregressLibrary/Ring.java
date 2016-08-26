@@ -13,9 +13,21 @@ public class Ring {
     private String name;
     private String value;
     private RectF rectFRing;
-
     private int startColor;
     private int endColor;
+
+
+    public Ring(int p, String name, String value, int startColor, int endColor) {
+        this.progress = p;
+        this.name = name;
+        this.value = value;
+        this.startColor = startColor;
+        this.endColor = endColor;
+
+    }
+
+    public Ring() {
+    }
 
 
     public String getName() {
@@ -41,7 +53,6 @@ public class Ring {
     public void setRectFRing(RectF rectFRing) {
         this.rectFRing = rectFRing;
     }
-
 
 
     public int getStartColor() {
