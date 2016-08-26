@@ -1,5 +1,6 @@
 package com.ldoublem.ringProgress;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -147,7 +148,7 @@ public class TestActivity extends AppCompatActivity {
     }
 
 
-    private String[] data=new String[]{"Monday","Tuesday","Wednesday","Thursday","Friday"};
+    private String[] data = new String[]{"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
 
 
     private void setData() {
@@ -155,9 +156,9 @@ public class TestActivity extends AppCompatActivity {
         for (int i = 0; i < data.length; i++) {
 
             Ring r = new Ring();
-            int p=random.nextInt(100);
+            int p = random.nextInt(100);
             r.setProgress(p);
-            r.setValue(String.valueOf(p*100));
+            r.setValue(String.valueOf(p * 100));
 
             r.setName(data[i]);
 
@@ -191,7 +192,6 @@ public class TestActivity extends AppCompatActivity {
             }
 
 
-
             mlistRing.add(r);
 
         }
@@ -203,6 +203,13 @@ public class TestActivity extends AppCompatActivity {
     public void automatic(View v) {
         setData();
 
+
+    }
+
+    public void countdown(View v) {
+        Intent i = new Intent();
+        i.setClass(this, Test2Activity.class);
+        startActivity(i);
 
     }
 

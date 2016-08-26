@@ -94,6 +94,14 @@
                 android:text="data"/>
 
 
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="countdown"
+                android:text="Countdown"/>
+
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

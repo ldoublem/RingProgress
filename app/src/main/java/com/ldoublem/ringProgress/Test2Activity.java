@@ -38,9 +38,11 @@ public class Test2Activity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);//去掉信息栏
         setContentView(R.layout.layout_test2);
-        mRingProgress = (RingProgress) findViewById(R.id.lv_ringp);
+        getSupportActionBar().hide();
 
-        setData(maxTime, maxTime + "'", "Countdown",  Color.rgb(86, 171, 228), Color.argb(100, 86, 171, 228));
+        mRingProgress = (RingProgress) findViewById(R.id.lv_ringp);
+        mRingProgress.setDrawBg(false);
+        setData(maxTime, maxTime + "'", "Countdown", Color.rgb(86, 171, 228), Color.argb(100, 86, 171, 228));
 
 
     }
@@ -49,7 +51,7 @@ public class Test2Activity extends AppCompatActivity {
     private void setData(int progress, String value, String title, int startColor,
                          int endColor) {
         mlistRing.clear();
-        Ring r = new Ring(progress,value,title,startColor,endColor);
+        Ring r = new Ring(progress, value, title, startColor, endColor);
 //        r.setProgress(progress);
 //        r.setValue(text);
 //        r.setName(title);
@@ -86,6 +88,8 @@ public class Test2Activity extends AppCompatActivity {
                     mHandle.sendMessage(msg);
 
                 } else {
+                    Message msg = mHandle.obtainMessage(1);
+                    mHandle.sendMessage(msg);
                     mTimerLVRingProgress.cancel();
                 }
             }
@@ -108,7 +112,7 @@ public class Test2Activity extends AppCompatActivity {
         if (mTimerLVRingProgress != null) {
             mTimerLVRingProgress.cancel();
             int p = maxTime - (int) (mValueLVRingProgress);
-            setData(p, p + "'", "Countdown", Color.rgb(234, 128, 16), Color.argb(100, 234, 128, 16));
+            setData(p, p + "'", "Pause", Color.rgb(234, 128, 16), Color.argb(100, 234, 128, 16));
 
 
         }
@@ -121,28 +125,33 @@ public class Test2Activity extends AppCompatActivity {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
 //            mLVRingProgress.setProgress(msg.arg1);
+            if (msg.what == 0) {
+                int p = maxTime - (int) (msg.arg1);
 
-            int p = maxTime - (int) (msg.arg1);
 
+                if (p > 60) {
+                    setData(p, p + "'", "Countdown", Color.rgb(86, 171, 228), Color.argb(100, 86, 171, 228));
 
-            if(p>60)
-            {
-                setData(p, p + "'", "Countdown", Color.rgb(86, 171, 228), Color.argb(100, 86, 171, 228));
+                } else if (p > 30) {
+                    setData(p, p + "'", "Countdown", Color.rgb(17, 205, 110), Color.argb(100, 17, 205, 110));
+
+                } else {
+                    setData(p, p + "'", "Countdown", Color.rgb(235, 79, 56), Color.argb(100, 235, 79, 56));
+
+                }
+            } else {
+                Toast.makeText(Test2Activity.this, "ok", Toast.LENGTH_SHORT).show();
+                setData(maxTime, maxTime + "'", "Countdown", Color.rgb(86, 171, 228), Color.argb(100, 86, 171, 228));
 
             }
-            else if(p>30)
-            {
-                setData(p, p + "'", "Countdown", Color.rgb(17, 205, 110), Color.argb(100, 17, 205, 110));
-
-            }
-            else
-            {
-                setData(p, p + "'", "Countdown", Color.rgb(235, 79, 56), Color.argb(100, 235, 79, 56));
-
-            }
-
         }
     };
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mTimerLVRingProgress != null) {
+            mTimerLVRingProgress.cancel();
+        }
+    }
 }
